@@ -41,7 +41,7 @@ export function Photography() {
 
   return (
     <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto min-h-screen">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -53,13 +53,9 @@ export function Photography() {
             A visual diary capturing fleeting moments, architectural lines, and raw emotions. I shoot primarily on 35mm film and medium format digital.
           </p>
         </div>
-        <div className="hidden md:flex flex-col items-center justify-center p-8 bg-zinc-900 text-zinc-50 border-4 border-zinc-900">
-           <Camera size={32} strokeWidth={2} className="mb-4" />
-           <span className="font-stylized text-xl font-bold uppercase tracking-widest">Through the lens</span>
-        </div>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.2 }}
@@ -67,7 +63,7 @@ export function Photography() {
         <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
           <Masonry gutter="24px">
             {photos.map((photo, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -76,13 +72,13 @@ export function Photography() {
                 className="group relative overflow-hidden cursor-crosshair bg-zinc-100 border border-zinc-200/50"
                 onClick={() => setSelectedPhoto(photo)}
               >
-                <img 
-                  src={photo.src} 
+                <img
+                  src={photo.src}
                   alt={photo.title}
                   className="w-full block group-hover:scale-105 transition-transform duration-[2s] ease-out mix-blend-multiply"
                   loading="lazy"
                 />
-                
+
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-zinc-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
@@ -107,13 +103,13 @@ export function Photography() {
             className="fixed inset-0 z-[100] flex items-center justify-center bg-zinc-950/95 backdrop-blur-sm p-4 md:p-8"
             onClick={() => setSelectedPhoto(null)}
           >
-            <button 
+            <button
               className="absolute top-6 right-6 text-zinc-400 hover:text-white transition-colors z-[110]"
               onClick={() => setSelectedPhoto(null)}
             >
               <X size={36} strokeWidth={1.5} />
             </button>
-            <motion.div 
+            <motion.div
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
@@ -121,9 +117,9 @@ export function Photography() {
               className="relative max-w-full max-h-full flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
-              <img 
-                src={selectedPhoto.src} 
-                alt={selectedPhoto.title} 
+              <img
+                src={selectedPhoto.src}
+                alt={selectedPhoto.title}
                 className="max-h-[80vh] w-auto object-contain mx-auto border-4 border-zinc-900 shadow-2xl"
               />
               <div className="mt-6 text-center">
