@@ -1,6 +1,7 @@
-import { useParams, Navigate } from "react-router";
+import { useParams, Navigate, Link } from "react-router";
+import { motion } from "motion/react";
+import { ArrowLeft } from "lucide-react";
 import { projectsData, Project } from "../data/projects";
-import { ProjectNavigation } from "./project-detail/ProjectNavigation";
 import { ProjectHero } from "./project-detail/ProjectHero";
 import { ProjectMeta } from "./project-detail/ProjectMeta";
 import { ProjectOverview } from "./project-detail/ProjectOverview";
@@ -21,8 +22,22 @@ export function ProjectDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
-      <ProjectNavigation />
+    <div className="min-h-screen bg-white pt-32">
+      {/* Back Navigation */}
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        className="px-6 max-w-7xl mx-auto mb-12"
+      >
+        <Link
+          to="/product-design"
+          className="inline-flex items-center space-x-2 text-xs font-bold text-zinc-500 hover:text-zinc-900 uppercase tracking-widest transition-colors"
+        >
+          <ArrowLeft size={16} />
+          <span>Back to Projects</span>
+        </Link>
+      </motion.div>
+
       <ProjectHero
         title={project.title}
         subtitle={project.subtitle}
