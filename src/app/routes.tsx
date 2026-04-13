@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 import { AppLayout } from "./components/AppLayout";
 import { Home } from "./components/Home";
 import { ProductDesign } from "./components/ProductDesign";
+import { ProjectDetail } from "./components/ProjectDetail";
 import { WebDesign } from "./components/WebDesign";
 import { Photography } from "./components/Photography";
 import { Writing } from "./components/Writing";
@@ -14,6 +15,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, Component: Home },
       { path: "product-design", Component: ProductDesign },
+      { path: "product-design/:projectId", Component: ProjectDetail },
       { path: "web-design", Component: WebDesign },
       { path: "photography", Component: Photography },
       { path: "writing", Component: Writing },
