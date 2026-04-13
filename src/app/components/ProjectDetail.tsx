@@ -38,13 +38,15 @@ export function ProjectDetail() {
         </Link>
       </motion.div>
 
-      <ProjectHero
-        title={project.title}
-        subtitle={project.subtitle}
-        role={project.role}
-        year={project.year}
-        heroImage={project.heroImage}
-      />
+      <div className="px-6">
+        <ProjectHero
+          title={project.title}
+          subtitle={project.subtitle}
+          role={project.role}
+          year={project.year}
+          heroImage={project.heroImage}
+        />
+      </div>
       <ProjectMeta
         duration={project.duration}
         team={project.team}
